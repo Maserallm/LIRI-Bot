@@ -72,7 +72,7 @@ function bandsInTown() {
 }
 
 function spotSearch(song) {
-  spotify.search({ type: "track", query: song, limit: 1 }, function(err, data) {
+  spotify.search({ type: "track", query: song, limit: 5 }, function(err, data) {
     if (err) {
       throw console.log("Error occurred: " + err);
     } else {
