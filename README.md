@@ -30,11 +30,12 @@ When the initial syntax is typed in command, users can then type in "spotify-thi
 
 ---
 
-### Link to Github Repo
+### Link to Github Repo and LIRI Demonstration
 
 - https://github.com/Maserallm/LIRI-Bot
+- https://drive.google.com/file/d/1t6RnO3-BIHhh_yzuL1nK8iHspHfsUoDq/preview
 
-### Technology Used in LIRI Application
+### Technologies Used in LIRI Application
 
 1. [Node.js](https://nodejs.org/en/docs/)
 2. [Axios](https://www.npmjs.com/package/axios)
@@ -47,4 +48,4 @@ When the initial syntax is typed in command, users can then type in "spotify-thi
 
 ### Contribution
 
-I am the soe contributor to this application.
+I am the sole contributor to this application.
