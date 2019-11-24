@@ -7,14 +7,15 @@ const moment = require("moment");
 const fs = require("fs");
 
 const spotify = new Spotify(keys.spotify);
-const omdbKey = new axios(keys.omdb);
-console.log(omdbKey);
+
+//caused promise handling error in terminal. Hard coded OMDB-APIKEY
+//const omdbKey = new axios(keys.omdb);
+//console.log(omdbKey);
 
 const commands = process.argv[2];
 const secCommand = process.argv.slice(3).join(" ");
 
 //switch case statements
-
 switch (commands) {
   case "concert-this":
     // code to search BIT API
@@ -42,6 +43,7 @@ switch (commands) {
     break;
   case "do-what-it-says":
     // takes random.txt file & runs switch commands
+    dwis();
     break;
 }
 
@@ -92,6 +94,7 @@ function movieSearch(movie) {
     .get("http://www.omdbapi.com/?apikey=trilogy&t=" + movie)
     .then(response => {
       let movieInfo = response.data;
+      console.log("________________________________________");
       console.log(`Movie Title: ${movieInfo.Title}`);
       console.log(`Release Year: ${movieInfo.Year}`);
       console.log(`IMDB Rating: ${movieInfo.imdbRating}`);
@@ -101,10 +104,25 @@ function movieSearch(movie) {
       console.log(`Plot: ${movieInfo.Plot}`);
       console.log(`Actors: ${movieInfo.Actors}`);
       console.log(`Awards: ${movieInfo.Awards}`);
+      console.log("________________________________________");
     })
     .catch(err => {
       if (err) {
         console.log(err.response);
       }
     });
+}
+
+function dwis() {
+  fs.readFile("random.txt", "utf8", function(err, data) {
+    let randTxt = data.split(",");
+    //console.log(randTxt[1]);
+
+    spotSearch(randTxt[1]);
+    if (err) {
+      throw err;
+    } else {
+      console.log("Listen to the Node Vibes");
+    }
+  });
 }
